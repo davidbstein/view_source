@@ -6,6 +6,9 @@
     <script src="/external/highlight.min.js"></script>
     <script>
     var path = location.hash.substr(1);
+    if (path === ""){
+      $("container").html("<a href='javascript:window.location = `https://davidbstein.github.io/view_source/#${location.href}`;location.reload();'>View Source Bookmarklet</a>");
+    }
     $.get(path, function(data){
       $("body").html("").append($("<pre>").text(data));
       $('pre').each(function(i, block){
